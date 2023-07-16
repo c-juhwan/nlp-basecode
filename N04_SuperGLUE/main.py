@@ -60,6 +60,8 @@ def main(args: argparse.Namespace) -> None:
         elif args.task == 'submission':
             if args.job == 'submission':
                 from task.submission.superglue_submission import submission as job
+            elif args.job == 'few_submission':
+                from task.submission.fewglue_submission import submission as job
             else:
                 raise ValueError(f'Invalid job: {args.job}')
         else:

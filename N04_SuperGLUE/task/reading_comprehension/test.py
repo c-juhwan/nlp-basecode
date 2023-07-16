@@ -47,7 +47,7 @@ def testing(args: argparse.Namespace) -> None:
 
     dataloader_dict['valid'] = DataLoader(dataset_dict['valid'], batch_size=args.batch_size, num_workers=args.num_workers,
                                           shuffle=False, pin_memory=True, drop_last=False)
-    dataloader_dict['test'] = DataLoader(dataset_dict['test'][:300], batch_size=args.batch_size, num_workers=args.num_workers,
+    dataloader_dict['test'] = DataLoader(dataset_dict['test'], batch_size=args.batch_size, num_workers=args.num_workers,
                                          shuffle=False, pin_memory=True, drop_last=False)
     args.vocab_size = dataset_dict['valid'].vocab_size
     args.num_classes = dataset_dict['valid'].num_classes
@@ -83,7 +83,6 @@ def testing(args: argparse.Namespace) -> None:
                          f"Dataset: {args.task_dataset}",
                          f"Model: {args.model_type}"])
 
-    """
     # Test - Start testing on valid dataset
     model = model.eval()
     valid_acc_cls = 0
@@ -109,7 +108,6 @@ def testing(args: argparse.Namespace) -> None:
 
     valid_acc_cls /= len(dataloader_dict['valid'])
     valid_f1_cls /= len(dataloader_dict['valid'])
-    """
 
     # Test - Start testing on test dataset
     model = model.eval()

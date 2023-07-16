@@ -14,5 +14,7 @@ clear
 TASK=reading_comprehension
 DATASET=record
 # python main.py --task=${TASK} --job=preprocessing --task_dataset=${DATASET} --model_type=${MODEL} --max_seq_len=512
-python main.py --task=${TASK} --job=training --task_dataset=${DATASET} --model_type=${MODEL} --batch_size=${BS} --learning_rate=${LR} --num_epochs=3 --device=cuda:0
-python main.py --task=${TASK} --job=testing --task_dataset=${DATASET} --model_type=${MODEL} --batch_size=${BS} --learning_rate=${LR} --num_epochs=3 --device=cuda:0
+# python main.py --task=${TASK} --job=training --task_dataset=${DATASET} --model_type=${MODEL} --batch_size=${BS} --learning_rate=${LR} --num_epochs=3 --device=cuda:0
+# python main.py --task=${TASK} --job=testing --task_dataset=${DATASET} --model_type=${MODEL} --batch_size=${BS} --learning_rate=${LR} --num_epochs=3 --device=cuda:0
+
+python main.py --task=submission --job=submission

@@ -17,7 +17,7 @@ def submission(args: argparse.Namespace) -> None:
     submission_file_list = []
     for task in task_dict.keys():
         for dataset in task_dict[task]:
-            submission_file_list.append(os.path.join(args.result_path, task, dataset, args.model_type, 'test_result.jsonl'))
+            submission_file_list.append(os.path.join(args.result_path, task, dataset, args.model_type, 'test_results.jsonl'))
 
     print(submission_file_list)
     # Check if all submission files exist
@@ -37,8 +37,8 @@ def submission(args: argparse.Namespace) -> None:
         dataset_name = submission_file.split('/')[-3].upper() + '.jsonl'
 
         # Rename the file
-        os.system(f'mv {os.path.join(args.result_path, "submission", args.model_type, "test_result.jsonl")} {os.path.join(args.result_path, "submission", args.model_type, dataset_name)}')
-        print(f'mv {os.path.join(args.result_path, "submission", args.model_type, "test_result.jsonl")} {os.path.join(args.result_path, "submission", args.model_type, dataset_name)}')
+        os.system(f'mv {os.path.join(args.result_path, "submission", args.model_type, "test_results.jsonl")} {os.path.join(args.result_path, "submission", args.model_type, dataset_name)}')
+        print(f'mv {os.path.join(args.result_path, "submission", args.model_type, "test_results.jsonl")} {os.path.join(args.result_path, "submission", args.model_type, dataset_name)}')
 
     # Rename - some datasets have different names in submission
     os.system(f'mv {os.path.join(args.result_path, "submission", args.model_type, "AXB.jsonl")} {os.path.join(args.result_path, "submission", args.model_type, "AX-b.jsonl")}')
