@@ -1,6 +1,6 @@
 # Welcome!
 
-This is the base code of various NLP tasks.
+This is the base code of various Natural Language Processing (NLP) tasks. This project has been inspired by [yunjey/pytorch-tutorial](https://github.com/yunjey/pytorch-tutorial), and I wanted to write a tutorial code for NLP.
 
 ## How to start
 
@@ -16,3 +16,11 @@ $ pip install -r requirements.txt
 ```
 
 After the installation, move to the directory of each task and run the code.
+
+## Content
+
+1. [Text Classification](https://github.com/c-juhwan/nlp-basecode/tree/master/N01_SingleClassification)
+2. [Textual Entailment](https://github.com/c-juhwan/nlp-basecode/tree/master/N02_TextualEntailment)
+3. [GLUE Benchmark](https://github.com/c-juhwan/nlp-basecode/tree/master/N03_GLUEBenchmark)
+4. [SuperGLUE Benchmark](https://github.com/c-juhwan/nlp-basecode/tree/master/N04_SuperGLUE)
+5. More to come!
