@@ -23,4 +23,5 @@ After the installation, move to the directory of each task and run the code.
 2. [Textual Entailment](https://github.com/c-juhwan/nlp-basecode/tree/master/N02_TextualEntailment)
 3. [GLUE Benchmark](https://github.com/c-juhwan/nlp-basecode/tree/master/N03_GLUEBenchmark)
 4. [SuperGLUE Benchmark](https://github.com/c-juhwan/nlp-basecode/tree/master/N04_SuperGLUE)
-5. More to come!
+5. [Image Classification](https://github.com/c-juhwan/nlp-basecode/tree/master/V01_ImageClassification)
+6. More to come!
