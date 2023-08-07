@@ -85,11 +85,11 @@ def load_data(args: argparse.Namespace):
         valid_df = train_df[:int(len(train_df) * train_valid_split)]
         train_df = train_df[int(len(train_df) * train_valid_split):]
 
-        train_data['image'] = train_df['image'].tolist()
+        train_data['image'] = train_df['img'].tolist()
         train_data['label'] = train_df['label'].tolist()
-        valid_data['image'] = valid_df['image'].tolist()
+        valid_data['image'] = valid_df['img'].tolist()
         valid_data['label'] = valid_df['label'].tolist()
-        test_data['image'] = test_df['image'].tolist()
+        test_data['image'] = test_df['img'].tolist()
         test_data['label'] = test_df['label'].tolist()
     elif name == 'cifar100':
         dataset = load_dataset('cifar100')
@@ -104,12 +104,12 @@ def load_data(args: argparse.Namespace):
         valid_df = train_df[:int(len(train_df) * train_valid_split)]
         train_df = train_df[int(len(train_df) * train_valid_split):]
 
-        train_data['image'] = train_df['image'].tolist()
-        train_data['label'] = train_df['label'].tolist()
-        valid_data['image'] = valid_df['image'].tolist()
-        valid_data['label'] = valid_df['label'].tolist()
-        test_data['image'] = test_df['image'].tolist()
-        test_data['label'] = test_df['label'].tolist()
+        train_data['image'] = train_df['img'].tolist()
+        train_data['label'] = train_df['fine_label'].tolist()
+        valid_data['image'] = valid_df['img'].tolist()
+        valid_data['label'] = valid_df['fine_label'].tolist()
+        test_data['image'] = test_df['img'].tolist()
+        test_data['label'] = test_df['fine_label'].tolist()
 
     return train_data, valid_data, test_data, num_classes
 

@@ -40,10 +40,9 @@ class CustomDataset(Dataset):
 
         for idx in tqdm(range(len(data_['images'])), desc=f'Loading data from {data_path}'):
             PIL_images = data_['images'][idx].convert('RGB')
-            torch_image = self.transform(PIL_images)
 
             self.data_list.append({
-                'images': torch_image,
+                'images': PIL_images,
                 'labels': data_['labels'][idx],
                 'index': idx
             })
@@ -51,7 +50,14 @@ class CustomDataset(Dataset):
         del data_
 
     def __getitem__(self, idx:int) -> dict:
-        return self.data_list[idx]
+        torch_images = self.transform(self.data_list[idx]['images'])
+        item_dict = {
+            'images': torch_images,
+            'labels': self.data_list[idx]['labels'],
+            'index': idx
+        }
+
+        return item_dict
 
     def __len__(self) -> int:
         return len(self.data_list)

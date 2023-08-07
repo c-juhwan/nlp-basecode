@@ -37,7 +37,7 @@ class ArgParser():
                                  help='Path to the tensorboard log file.')
 
         # Model - Basic arguments
-        self.parser.add_argument('--proj_name', type=str, default='Base_Classification',
+        self.parser.add_argument('--proj_name', type=str, default='Base_ImageClassification',
                                  help='Name of the project.')
         model_type_list = ['resnet50', 'resnet152']
         self.parser.add_argument('--model_type', type=str, choices=model_type_list, default='bert',

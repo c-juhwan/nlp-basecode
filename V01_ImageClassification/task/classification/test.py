@@ -16,8 +16,8 @@ from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 # Custom Modules
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from model.classification.model import ClassificationModel, collate_fn
-from model.classification.dataset import CustomDataset
+from model.classification.model import ClassificationModel
+from model.classification.dataset import CustomDataset, collate_fn
 from utils.utils import TqdmLoggingHandler, write_log, get_tb_exp_name, get_wandb_exp_name, get_torch_device
 
 def testing(args: argparse.Namespace) -> tuple: # (test_acc_cls, test_f1_cls)
