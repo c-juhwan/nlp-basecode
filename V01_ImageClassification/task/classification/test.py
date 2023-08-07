@@ -39,7 +39,7 @@ def testing(args: argparse.Namespace) -> tuple: # (test_acc_cls, test_f1_cls)
 
     # Load dataset and define dataloader
     write_log(logger, "Loading dataset")
-    dataset_test = CustomDataset(os.path.join(args.preprocess_path, args.task, args.task_dataset, args.model_type, f'test_processed.pkl'))
+    dataset_test = CustomDataset(args, os.path.join(args.preprocess_path, args.task, args.task_dataset, args.model_type, f'test_processed.pkl'))
     dataloader_test = DataLoader(dataset_test, batch_size=args.batch_size, num_workers=args.num_workers,
                                  shuffle=False, pin_memory=True, drop_last=False, collate_fn=collate_fn)
     args.num_classes = dataset_test.num_classes
