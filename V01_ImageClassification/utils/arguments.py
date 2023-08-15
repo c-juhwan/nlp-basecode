@@ -40,7 +40,7 @@ class ArgParser():
         self.parser.add_argument('--proj_name', type=str, default='Base_ImageClassification',
                                  help='Name of the project.')
         model_type_list = ['resnet50', 'resnet152']
-        self.parser.add_argument('--model_type', type=str, choices=model_type_list, default='bert',
+        self.parser.add_argument('--model_type', type=str, choices=model_type_list, default='resnet50',
                                  help='Type of the classification model to use.')
         self.parser.add_argument('--model_ispretrained', type=parse_bool, default=True,
                                  help='Whether to use pretrained model; Default is True')
