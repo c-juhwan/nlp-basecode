@@ -50,7 +50,7 @@ class ClassificationModel(nn.Module):
             args.image_resize_size = 224 # ViT-B/16 requires 224x224 image size
 
             self.feature_extractor = nn.Sequential(*list(self.model.children())[:-1])
-            self.feature_output_size = self.vit.heads[0].in_features
+            self.feature_output_size = self.model.heads[0].in_features
         else:
             raise NotImplementedError(f'Invalid model type: {args.model_type}')
 
@@ -68,14 +68,14 @@ class ClassificationModel(nn.Module):
             encoder = self.feature_extractor[1]
             processed_img = self.model._process_input(images)
 
-            n = processed_img
+            n = processed_img.size(0)
             # Expand the class token to the full batch
-            batch_class_token = self.vit.class_token.expand(n, -1, -1)
+            batch_class_token = self.model.class_token.expand(n, -1, -1)
             processed_img = torch.cat([batch_class_token, processed_img], dim=1)
 
             encoded_img = encoder(processed_img)
             features = encoded_img[:, 0]
-        elif self.args.model_type in ['resnet50', 'resnet152', 'efficientnet_b0', 'efficientnet_b7']:
+        elif self.args.model_type in ['vgg11', 'resnet50', 'resnet152', 'efficientnet_b0', 'efficientnet_b7']:
             features = self.feature_extractor(images)
 
         features = features.view(features.size(0), -1) # Flatten the features to (batch_size, feature_output_size)
